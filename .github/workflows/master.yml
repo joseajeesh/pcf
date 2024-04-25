@@ -79,7 +79,7 @@ jobs:
     env:
       REGISTRY: ghcr.io
       DOCKER_REGISTRY: ghcr.io/
-      DOCKER_REPOSITORY: joseajeesh/
+      DOCKER_REPOSITORY: aj-omec/
     
     steps:
       - uses: actions/checkout@v4
