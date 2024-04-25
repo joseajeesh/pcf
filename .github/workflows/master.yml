@@ -99,7 +99,7 @@ jobs:
     
     env:
       REGISTRY: ghcr.io
-      DOCKER_REGISTRY: joseajeesh/
+      #DOCKER_REGISTRY: joseajeesh/
     steps:
       - uses: actions/checkout@v4
 
