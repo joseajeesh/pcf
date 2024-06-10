@@ -6,7 +6,7 @@ SPDX-License-Identifier: Apache-2.0
 
 -->
 
-# pcf
+# pcfa
 
 The Policy Control Function (PCF) supports unified policy framework to govern network behaviour, 
 provides policy rules to Control Plane function(s) to enforce them and Accesses subscription information
