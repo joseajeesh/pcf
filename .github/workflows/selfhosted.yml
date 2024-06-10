@@ -50,7 +50,7 @@ jobs:
       - name: Unit tests
         run: go test ./...
         
-   self-h-test:
+  self-h-test:
     runs-on: self-hosted
     steps:
       - uses: actions/checkout@v4
