@@ -14,15 +14,16 @@ on:
 jobs:
     
   
-  trigger_jenkins:
-    runs-on: self-hosted  # This job runs on the self-hosted runner
+  trigger-a-jenkins-job:
+    runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-      - name: Trigger Jenkins job
-        run: |
-          JENKINS_URL=http://54.86.111.250:8080/  # Replace with your Jenkins server URL
-          JENKINS_JOB_NAME=iosmcn  # Replace with your Jenkins job name
-          JENKINS_API_TOKEN=secrets.JENKINS  # Replace with your API token (store securely using secrets)
-
-          curl -X POST -u "$JENKINS_USER:$JENKINS_API_TOKEN" "$JENKINS_URL/job/$JENKINS_JOB_NAME/build"
+      - id: triggerjenkinsjob
+        uses: mickeygoussetorg/trigger-jenkins-job@v1
+        with:
+          jenkins-server:  "${{ secrets.JENKINS_SERVER }}" # URL of the jenkins server. ex: http://myjenkins.acme.com:8080
+          jenkins-job: "iosmcn" # The name of the jenkins job to run
+          jenkins-username: ${{ secrets.JENKINS_USERNAME }} # user name for accessing jenkins
+          jenkins-pat: ${{ secrets.JENKINS_PAT }} # personal Access token for accessing Jenkins
+          poll-time: 10 # how often (seconds) to poll the jenkins server for results
+          timeout-value: 600 # How long (seconds) to poll before timing out the action
+          verbose: true # true/false - turns on extra logging
